@@ -1,5 +1,6 @@
 <?php
     header('Content-Type: application/json');
+
     $server = 'localhost';
     $username = 'root';
     $password = 'root';
@@ -14,7 +15,7 @@
     $id = $_POST['id'];
 
     $sql = "
-        DELETE FROM pagamenti WHERE pagamenti.id = " . $id ;
+        DELETE FROM paganti WHERE paganti.id = " . $id ;
 
     $conn -> query($sql);
 

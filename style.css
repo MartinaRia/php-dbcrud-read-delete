@@ -85,3 +85,7 @@ img{
   width: 100%;
   padding: 3px;
 }
+
+.id{
+  display: none;
+}

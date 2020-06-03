@@ -12,14 +12,16 @@ $( document ).ready(function() {
           var source = $("#template-scheda-pagante-handlebars").html(); //salvare il selettore del template in una var
           var template = Handlebars.compile(source); // "il template da compilare è questo"
 
-          // 2 organizzare i contenuti che popolano il template
           for (var pagante of data) {
-            var context = {
-              'nome': pagante.name,
-              'cognome': pagante.lastname,
-              'indirizzo': pagante.address
-            };
-            var html = template(context); //abbinare template a contenuto
+
+            // var pagante = {
+            //   'name': pagante.name,
+            //   'lastnome': pagante.lastname,
+            //   'address': pagante.address,
+            //   'id': pagante.id
+            // };
+            // var html = template(context);
+            var html = template(pagante);
 
             // appendi il div con la risposta random nel tread
             $('main').append(html);
@@ -33,13 +35,15 @@ $( document ).ready(function() {
     });
 
     // delete pagamenti --------------------
-  /*  $(".lista-pagamenti").on('click', '.pag' , function(){
+    $("main").on('click', '.scheda-pagante' , function(){
 
-      var id = $(this).data('id');
-      console.log($(this).data('id'));
+      var id = $('.id', this).html();
+      //console.log(id);
+
+      $(this).fadeOut();
 
       $.ajax({
-        url: 'deletePagamentiById.php',
+        url: 'deletePagante.php',
         method: 'POST',
         data:{
           id: id
@@ -51,7 +55,7 @@ $( document ).ready(function() {
         },
       });
 
-    });*/
+    });
 
 
 
